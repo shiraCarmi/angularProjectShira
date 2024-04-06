@@ -1,0 +1,25 @@
+
+<div class="card-body" style="margin-left: 25vw; margin-right: 15vw;">
+    <form [formGroup]="mySchedule" *ngIf="flag1==true&&flag2==true&&flag3==true">
+
+        <label *ngFor="let day of dayesArray;index as i;" [for]="day">{{dayesArray[i]}}:
+            <select [name]="day" [id]="day" [formControlName]="day" [ngClass]="{'selected':this.selectorSchedule[i]!=''}"
+                >{{this.getByIdVolunteer(this.selectorSchedule[i])}}
+                <option *ngFor="let vol of this.myMat[i]" [value]="vol.id">{{vol.name}}</option>
+            </select>
+        </label>
+        <br><br>
+<input type="submit" value="save schudel" (click)="this.saveSchedule()">
+    </form>
+</div>
+
+
+
+<!-- <div formArrayName="dayes">
+    <span *ngFor="let d of dayes.controls;index as i">
+        <input type="checkbox" [formControlName]="i">{{dayesArray[i]}} .
+    </span>
+</div> -->
+
+
+<!-- <option *ngFor="let v of this.volunteersForDay(i)"  [value]="v.id">{{v.firstName}} </option> -->

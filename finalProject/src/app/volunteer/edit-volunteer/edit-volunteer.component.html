@@ -1,0 +1,40 @@
+<p>edit-volunteer works!</p>
+{{selectorVolunteerEdit|json}}
+
+<div class="card-body" style="margin-left: 25vw;margin-right: 25vw;">
+    <form class="form" [formGroup]="myfromGroup">
+        <div class="form-group">
+            <label for="name">name:</label>
+            <input type="text" class="form-control" name="name" id="name" formControlName="name">
+
+            <ng-container *ngIf="myfromGroup.controls['name'].errors&&myfromGroup.controls['name'].touched">
+                <div class="alert alert-danger" *ngIf="myfromGroup.controls['name'].errors['minlength']">
+                    must be at least 2 chars
+                </div>
+                <div class="alert alert-danger" *ngIf="myfromGroup.controls['name'].errors['maxlength']">
+                    must be no more than 30 characters
+                </div>
+            </ng-container>
+        </div>
+        <div class="form-group">
+            <label for="id">phon:</label>
+            <input type="tel" class="form-control" [ngClass]="" name="phon" id="phon" formControlName="phon">
+            <ng-container *ngIf="myfromGroup.controls['phon'].errors&&myfromGroup.controls['phon'].touched">
+                <div class="alert alert-danger" *ngIf="myfromGroup.controls['phon'].errors['minlength']">
+                    must be at least 9 chars
+                </div>
+                <div class="alert alert-danger" *ngIf="myfromGroup.controls['phon'].errors['maxlength']">
+                    must be no more than 10 characters
+                </div>
+                <div class="alert alert-danger" *ngIf="myfromGroup.controls['phon'].errors['required']">
+                    must be complete!
+                </div>
+            </ng-container>
+        </div>
+        <div formArrayName="dayes">
+            <span *ngFor="let d of dayes.controls;index as i">
+                <input type="checkbox" [formControlName]="i">{{dayesArray[i]}} .
+            </span>
+        </div>
+        <button class="btn btn-light" (click)="saveVolunteer()">save</button>
+    </form>
