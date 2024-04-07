@@ -1,4 +1,4 @@
 
-.selected{
-    border: 3.5px solid green;
+.selected:not(form){
+    border: 2.5px solid rgb(104, 198, 125);
 }

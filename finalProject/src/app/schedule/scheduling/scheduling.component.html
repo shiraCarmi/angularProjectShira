@@ -1,11 +1,12 @@
 
-<div class="card-body" style="margin-left: 25vw; margin-right: 15vw;">
+<div class="card-body" style="margin-left: 25vw; margin-right: 15vw; margin-top: 8vh;">
     <form [formGroup]="mySchedule" *ngIf="flag1==true&&flag2==true&&flag3==true">
 
         <label *ngFor="let day of dayesArray;index as i;" [for]="day">{{dayesArray[i]}}:
             <select [name]="day" [id]="day" [formControlName]="day" [ngClass]="{'selected':this.selectorSchedule[i]!=''}"
                 >{{this.getByIdVolunteer(this.selectorSchedule[i])}}
                 <option *ngFor="let vol of this.myMat[i]" [value]="vol.id">{{vol.name}}</option>
+                <option [value]='""'><h6 style="size: 0.3em;">No volunteer</h6></option>
             </select>
         </label>
         <br><br>

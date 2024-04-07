@@ -5,8 +5,13 @@ import { VolunteerService } from './volunteer-service';
 import { BrowserModule } from '@angular/platform-browser';
 import { EditVolunteerComponent } from './edit-volunteer/edit-volunteer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router, RouterModule, Routes } from '@angular/router';
 
+const ROUTES:Routes=[
+  {path:"volunteers",component:VolunteerListComponent},
+  {path:"editVolunteer",component:EditVolunteerComponent}
 
+];
 
 @NgModule({
   declarations: [
@@ -15,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   exports:[VolunteerListComponent],
   imports: [BrowserModule ,
-    CommonModule,FormsModule , ReactiveFormsModule     
+    CommonModule,FormsModule , ReactiveFormsModule  ,RouterModule.forChild(ROUTES)   
   ],
   providers:[VolunteerService]
 })

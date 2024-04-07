@@ -13,9 +13,9 @@ import { SchedulingComponent } from './schedule/scheduling/scheduling.component'
 
 const ROUTES : Routes=[
     
-    {path:"Scheduling",component:SchedulingComponent},
-    {path:"volunteers",component:VolunteerListComponent},
-    {path:"editVolunteer",component:EditVolunteerComponent}
+    {path:"Scheduling",component:ScheduleModule},
+    {path:"volunteers",component:VolunteerModule}
+    
    
     ];
 
